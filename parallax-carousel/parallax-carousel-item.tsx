@@ -28,7 +28,7 @@ export const ParallaxCarouselItem: React.FC<{ index: number,   scrollX: SharedVa
                 <Image source={{ uri: item.image }} style={styles.image} />
             </Animated.View>
             <LinearGradient
-                style={{height: '40%', width: '100%', marginTop: 'auto'}}
+                style={styles.gradient}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 0, y: 1 }}
                 colors={['#00000000', '#000000CC']}
@@ -78,5 +78,10 @@ const styles = StyleSheet.create({
         color: 'white',
         fontStyle: 'italic',
         height: 80
+    },
+    gradient: {
+        height: '40%',
+        width: '100%',
+        marginTop: 'auto'
     }
 });
