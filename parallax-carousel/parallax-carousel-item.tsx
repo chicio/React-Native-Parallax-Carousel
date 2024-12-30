@@ -1,23 +1,25 @@
 import React from "react";
 import Animated, {interpolate, SharedValue, useAnimatedStyle} from "react-native-reanimated";
-import {Dimensions, Image, StyleSheet, View, Text} from "react-native";
-import {Item} from "@/components/Item";
+import {Dimensions, Image, StyleSheet, View} from "react-native";
+import {Item} from "@/parallax-carousel/Item";
 import { LinearGradient } from 'expo-linear-gradient';
 const { width, height } = Dimensions.get('window');
 
 export const ParallaxCarouselItem: React.FC<{ index: number,   scrollX: SharedValue<number>; item: Item }> = ({ index, scrollX, item }) => {
+    const inputRange = [
+        (index - 1) * width,
+        index * width,
+        (index + 1) * width,
+    ];
+
     const animatedStyle = useAnimatedStyle(() => {
-        const inputRange = [
-            (index - 1) * width,
-            index * width,
-            (index + 1) * width,
-        ];
-
-        const translateX = interpolate(scrollX.value, inputRange, [-150, 0, 150]);
-
         return {
-            transform: [{ translateX }],
+            transform: [{ translateX: interpolate(scrollX.value, inputRange, [-200, 0, 200]) }],
         };
+    });
+
+    const opacityAnimatedStyle = useAnimatedStyle(() => {
+        return { opacity: interpolate(scrollX.value, inputRange, [0, 1, 0]) };
     });
 
     return (
@@ -32,8 +34,8 @@ export const ParallaxCarouselItem: React.FC<{ index: number,   scrollX: SharedVa
                 colors={['#00000000', '#000000CC']}
             >
                 <View style={styles.caption}>
-                    <Text style={styles.title}>{item.title}</Text>
-                    <Text style={styles.description}>{item.description}</Text>
+                    <Animated.Text style={[opacityAnimatedStyle, styles.title]}>{item.title}</Animated.Text>
+                    <Animated.Text style={[opacityAnimatedStyle, styles.description]}>{item.description}</Animated.Text>
                 </View>
             </LinearGradient>
         </View>
