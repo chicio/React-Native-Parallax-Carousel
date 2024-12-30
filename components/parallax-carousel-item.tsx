@@ -1,7 +1,7 @@
 import React from "react";
 import Animated, {interpolate, SharedValue, useAnimatedStyle} from "react-native-reanimated";
 import {Dimensions, Image, StyleSheet, View, Text} from "react-native";
-import {Item} from "@/app/parallax-carousel/Item";
+import {Item} from "@/components/Item";
 import { LinearGradient } from 'expo-linear-gradient';
 const { width, height } = Dimensions.get('window');
 
@@ -13,7 +13,7 @@ export const ParallaxCarouselItem: React.FC<{ index: number,   scrollX: SharedVa
             (index + 1) * width,
         ];
 
-        const translateX = interpolate(scrollX.value, inputRange, [-100, 0, 100]);
+        const translateX = interpolate(scrollX.value, inputRange, [-150, 0, 150]);
 
         return {
             transform: [{ translateX }],

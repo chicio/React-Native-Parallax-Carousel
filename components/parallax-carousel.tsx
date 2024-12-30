@@ -1,8 +1,8 @@
 import React from 'react';
 import {Dimensions} from 'react-native';
 import Animated, {useAnimatedScrollHandler, useSharedValue} from 'react-native-reanimated';
-import {Item} from "@/app/parallax-carousel/Item";
-import {ParallaxCarouselItem} from "@/app/parallax-carousel/parallax-carousel-item";
+import {Item} from "@/components/Item";
+import {ParallaxCarouselItem} from "@/components/parallax-carousel-item";
 
 const { width } = Dimensions.get('window');
 
