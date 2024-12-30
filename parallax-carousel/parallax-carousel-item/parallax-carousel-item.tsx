@@ -1,30 +1,20 @@
 import React from "react";
-import Animated, {interpolate, SharedValue, useAnimatedStyle} from "react-native-reanimated";
+import Animated, {SharedValue} from "react-native-reanimated";
 import {Dimensions, Image, StyleSheet, View} from "react-native";
-import {ParallaxCarouselItemData} from "@/parallax-carousel/parallax-carousel-item-data";
-import { LinearGradient } from 'expo-linear-gradient';
+import {ParallaxCarouselItemData} from "@/parallax-carousel/parallax-carousel-item/parallax-carousel-item-data";
+import {LinearGradient} from 'expo-linear-gradient';
+import {
+    useParallaxWithOpacityAnimations
+} from "@/parallax-carousel/parallax-carousel-item/use-parallax-with-opacity-animations";
+
 const { width, height } = Dimensions.get('window');
 
 export const ParallaxCarouselItem: React.FC<{ index: number,   scrollX: SharedValue<number>; item: ParallaxCarouselItemData }> = ({ index, scrollX, item }) => {
-    const inputRange = [
-        (index - 1) * width,
-        index * width,
-        (index + 1) * width,
-    ];
-
-    const animatedStyle = useAnimatedStyle(() => {
-        return {
-            transform: [{ translateX: interpolate(scrollX.value, inputRange, [-200, 0, 200]) }],
-        };
-    });
-
-    const opacityAnimatedStyle = useAnimatedStyle(() => {
-        return { opacity: interpolate(scrollX.value, inputRange, [0, 1, 0]) };
-    });
+    const {parallaxAnimatedStyle, opacityAnimatedStyle} = useParallaxWithOpacityAnimations(index, scrollX, width);
 
     return (
         <View style={styles.itemContainer}>
-            <Animated.View style={[styles.imageContainer, animatedStyle]}>
+            <Animated.View style={[styles.imageContainer, parallaxAnimatedStyle]}>
                 <Image source={{ uri: item.image }} style={styles.image} />
             </Animated.View>
             <LinearGradient
