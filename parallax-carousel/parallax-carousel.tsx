@@ -20,7 +20,7 @@ export const ParallaxCarousel: FC<{ items: ParallaxCarouselItemData[] }> = ({ it
             keyExtractor={(item, index) => `${item.id}-${index}`}
             horizontal
             showsHorizontalScrollIndicator={false}
-            decelerationRate="fast"
+            decelerationRate="normal"
             onScroll={scrollHandler}
             scrollEventThrottle={16}
             renderItem={({item, index}: { item: ParallaxCarouselItemData, index: number }) =>

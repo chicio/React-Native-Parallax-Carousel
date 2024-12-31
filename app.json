@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-native-parallax-carousel-example",
-    "slug": "react-native-parallax-carousel-example",
+    "name": "react-native-parallax-carousel",
+    "slug": "react-native-parallax-carousel",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

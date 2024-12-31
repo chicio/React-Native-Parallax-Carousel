@@ -60,13 +60,15 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 32,
+        fontWeight: "bold",
         color: 'white'
     },
     description: {
         fontSize: 18,
         color: 'white',
         fontStyle: 'italic',
-        height: 80
+        lineHeight: 24,
+        height: 100
     },
     gradient: {
         height: '40%',
