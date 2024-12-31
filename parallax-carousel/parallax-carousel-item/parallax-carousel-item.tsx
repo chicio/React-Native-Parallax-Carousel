@@ -67,8 +67,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: 'white',
         fontStyle: 'italic',
-        lineHeight: 24,
-        height: 100
+        height: 80
     },
     gradient: {
         height: '40%',
