@@ -1,7 +1,7 @@
 # React native parallax carousel
 
-This is an example app created with [Expo](https://expo.dev) for the blog post "Create a circular carousel with parallax effect
-in React Native".
+This is an example app created with [Expo](https://expo.dev) for the blog post ["Create a circular carousel with parallax effect
+in React Native"](https://www.fabrizioduroni.it/2024/12/31/carousel-parallax-circular-loop-react-native-expo/).
 In this blog post, I show how it is possible to create a full-screen carousel with:
 
 * parallax animation on the images inside the items during scroll
